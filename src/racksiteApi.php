@@ -67,7 +67,7 @@ class racksiteApi
                 ],
             ]
         );
-        return json_decode($responseJson->getBody())->value;
+        return json_decode($responseJson->getBody());
     }
 
     public function setColobootPxeInstaller($_hostname, $_macAddress, $_os, $_ip, $_netmask, $_gateway, $_password)
@@ -89,6 +89,6 @@ class racksiteApi
                 ],
             ]
         );
-        return json_decode($responseJson->getBody())->value;
+        return json_decode($responseJson->getBody());
     }
 }
