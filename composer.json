@@ -4,7 +4,7 @@
     "keywords": ["netzfabrik", "racksite", "rz.koeln"],
     "type": "library",
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "authors": [
         {
             "name": "Giuliano Schindler",
@@ -16,7 +16,7 @@
     "require": {
         "php": "^7.1.0",
         "ext-json": "*",
-        "guzzlehttp/guzzle": "~6.0"
+        "guzzlehttp/guzzle": "6.0"
     },
     "autoload": {
         "psr-4": {
