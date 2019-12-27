@@ -1,17 +1,19 @@
 <?php
 /**
- * This file is part of the NETZFABRIK/php-racksite library
+ * This file is part of the NETZFABRIK/php-racksite library.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
  * @copyright Copyright (c) Giuliano Schindler <giuliano.schindler@netzfabrik.com>
+ *
  * @link https://docs.racksite.net Website
  */
+
 namespace NETZFABRIK\racksite;
+
 /**
- * Class Api
- * @package NETZFABRIK\racksite
+ * Class Api.
  */
 class racksiteApi
 {
@@ -22,7 +24,7 @@ class racksiteApi
     private static $_endpoint;
 
     /**
-     * Url to communicate with racksite API
+     * Url to communicate with racksite API.
      *
      * @var array
      */
@@ -34,9 +36,9 @@ class racksiteApi
     /**
      * Api constructor.
      *
-     * @param string $_username     Username for Login
-     * @param string $_password     Password for Login
-     * @param string $_endpoint     The URI of the target web API
+     * @param string $_username Username for Login
+     * @param string $_password Password for Login
+     * @param string $_endpoint The URI of the target web API
      *
      * @throws \GuzzleHttp\Exception\BadResponseException
      */
@@ -51,7 +53,7 @@ class racksiteApi
                 'form_params' => [
                     'username' => self::$_username,
                     'password' => self::$_password,
-                ]
+                ],
             ]
         );
         self::$_accessToken = json_decode($responseLogin->getBody())->access_token;
@@ -62,11 +64,12 @@ class racksiteApi
         $responseJson = self::$_client->request(
             'GET', self::$_endpoint.'/coloboot/pxe-installer', [
                 'headers' => [
-                    'Authorization' => 'Bearer ' . self::$_accessToken,
-                    'Content-Type' => 'application/json',
+                    'Authorization' => 'Bearer '.self::$_accessToken,
+                    'Content-Type'  => 'application/json',
                 ],
             ]
         );
+
         return json_decode($responseJson->getBody());
     }
 
@@ -75,20 +78,21 @@ class racksiteApi
         $responseJson = self::$_client->request(
             'POST', self::$_endpoint.'/coloboot/pxe-installer', [
             'form_params' => [
-                'hostname' => $_hostname,
+                'hostname'    => $_hostname,
                 'mac_address' => $_macAddress,
-                'os' => $_os,
-                'ip' => $_ip,
-                'netmask' => $_netmask,
-                'gateway' => $_gateway,
-                'password' => $_password
+                'os'          => $_os,
+                'ip'          => $_ip,
+                'netmask'     => $_netmask,
+                'gateway'     => $_gateway,
+                'password'    => $_password,
                 ],
                 'headers' => [
-                    'Authorization' => 'Bearer ' . self::$_accessToken,
-                    'Content-Type' => 'application/json',
+                    'Authorization' => 'Bearer '.self::$_accessToken,
+                    'Content-Type'  => 'application/json',
                 ],
             ]
         );
+
         return json_decode($responseJson->getBody());
     }
 }
