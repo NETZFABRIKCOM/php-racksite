@@ -1,0 +1,26 @@
+{
+    "name": "NETZFABRIK/php-racksite",
+    "description": "A full-featured implementation of racksite api",
+    "keywords": ["netzfabrik", "racksite", "rz.koeln"],
+    "type": "library",
+    "license": "MIT",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Giuliano Schindler",
+            "email": "giuliano.schindler@netzfabrik.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.1.0",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "NETZFABRIK\\racksite\\": "src/"
+        }
+    }
+}
