@@ -1,5 +1,5 @@
 {
-    "name": "NETZFABRIK/php-racksite",
+    "name": "netzfabrik/php-racksite",
     "description": "A full-featured implementation of racksite api",
     "keywords": ["netzfabrik", "racksite", "rz.koeln"],
     "type": "library",
